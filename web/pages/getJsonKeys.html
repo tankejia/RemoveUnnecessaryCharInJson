@@ -1,14 +1,15 @@
-<%--
+<!%--
   Created by IntelliJ IDEA.
   User: kjtan
-  Date: 2019/5/7
-  Time: 17:34
+  Date: 2019/4/28
+  Time: 13:43
   To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-->
+
 <html>
 <head>
-    <title>获得json中的key和value</title>
+    <meta charset="UTF-8">
+    <title>获得Json中的key</title>
     <style>
         body{
             font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
@@ -41,22 +42,22 @@
 <table>
     <tr>
         <td colspan="3" align="center">
-            ~~~~~~~~~~获得json中的key和value~~~~~~~~~~
+            ~~~~~~~~~~获得json中的key~~~~~~~~~~
         </td>
     </tr>
     <tr>
         <th >Json</th>
-        <th><button type="button" onclick="getAllKeyAndValues()">获取</button></th>
-        <th>keys &nbsp and &nbsp values</th>
+        <th><button type="button" onclick="getAllKeyLists()">获取</button></th>
+        <th>keys</th>
     </tr>
     <tr>
         <td><textarea placeholder="请输入json字符串" id="origin"  cols="86"></textarea></td>
         <td> </td>
-        <td><textarea placeholder="所有用-连接的key和对应的value" id="converted" readonly="readonly" cols="86"></textarea></td>
+        <td><textarea placeholder="所有用-连接的key" id="converted" readonly="readonly" cols="86"></textarea></td>
     </tr>
 </table>
 </body>
 
-<script src="../js/getAllKeyAndValueInJson.js"></script>
+<script src="../js/getAllKeyListInJson.js"></script>
 
 </html>
