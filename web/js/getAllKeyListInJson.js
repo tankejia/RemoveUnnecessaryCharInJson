@@ -67,8 +67,8 @@ function getAllKeyList(jsonStr,isUpperLayerArray)
                 let value = jsonObject[key];
                 if(typeof value === "object")//object转string
                     value = JSON.stringify(value);
-                value += "";//将int boolean类型转化为string
-                if(value === "[]"||value === ""||value.substring(0,2) === "[\""
+                value += "";//将number boolean 类型转化为string(不转化也ok
+                if(value === "[]"||value === ""||value.substring(0,2) === "[\""||value === "null"
                     ||!(isJsonObject(value)||isJsonArray(value))){//满足前述条件则不用判断是否object、array
                     addToKeySet(key);
                 }else{
