@@ -39,8 +39,8 @@ function arrayIndexListBack(){
 //将占位符@替换为arrayIndexList中的值
 function replacePlaceholder(s){
     if(arrayIndexList.length !== 0){
-        for(let arrayIndex in arrayIndexList){
-            let temp = parseInt(arrayIndex) + 1;
+        for(let index in arrayIndexList){
+            let temp = parseInt(arrayIndexList[index]) + 1;
             s = s.replace(/@/,temp);
         }
     }
@@ -61,7 +61,7 @@ function addToKeyMap(key,value){
 }
 
 
-//递归获得所有key
+//递归获得所有key和value
 function getAllKeyAndValue(jsonStr,isUpperMultiArray,isUpperLayerArray)
 {
     if(isJsonObject(jsonStr)){
@@ -73,8 +73,8 @@ function getAllKeyAndValue(jsonStr,isUpperMultiArray,isUpperLayerArray)
                 let value = jsonObject[key];
                 if(typeof value === "object")//object转string
                     value = JSON.stringify(value);
-                if(!(isJsonObject(value)||isJsonArray(value))
-                    ||value === "[]"){
+                if(value === "[]"||value === "" || value === "null"
+                    ||!(isJsonObject(value)||isJsonArray(value))){
                     addToKeyMap(key,value);
                 }else{
                     if(isJsonArray(value)){
@@ -87,7 +87,7 @@ function getAllKeyAndValue(jsonStr,isUpperMultiArray,isUpperLayerArray)
                     }else{
                         prefixList.push(key);
                     }
-                    getAllKeyAndValue(value,isUpperMultiArray,false);
+                    getAllKeyAndValue(value,false,false);
                 }
             }
             if(Object.keys(jsonObject).length === i){//object遍历结束前退
